@@ -18,8 +18,19 @@ namespace DesafioFundamentos.Models
             // *IMPLEMENTE AQUI*
             Console.WriteLine("Digite a placa do veículo para estacionar:");
             string placaEntrada = Console.ReadLine();
-            veiculos.Add(placaEntrada);
-            Console.WriteLine("Placa: " + placaEntrada + " adicionada.");            
+            if (placaEntrada.Length == 7){
+                // Verificar se a placa já existe na lista
+                if (!veiculos.Contains(placaEntrada)){
+                // Adicionar a placa à lista
+                    veiculos.Add(placaEntrada);
+                    Console.WriteLine("Placa: " + placaEntrada + " adicionada");
+                } else {
+                Console.WriteLine("Placa já existe. Adicione uma placa válida.");
+                }
+            } else {
+                Console.WriteLine("A placa deve ter exatamente 7 caracteres. Adicione uma placa válida.");
+            }
+                        
         }
         public void RemoverVeiculo()
         {
